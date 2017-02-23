@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import Task from './components/Task';
 import { AlertModal, Input, Button } from './components/common';
 import styles from './styles/styles';
@@ -67,15 +67,20 @@ renderTasks() {
         <Text style={styles.welcome}>
           Welcome to GoalTracker!!!
         </Text>
-        {this.renderTasks()}
-        <Input 
-          placeholder='Add a Task!' 
-          onChangeText={this.taskTextChange.bind(this)} 
-          value={this.state.taskToAdd} 
-        />
-        <Button onPress={this.addTask.bind(this)}>
-          Add
-        </Button>
+        <ScrollView style={{ width: 200, height: 300, backgroundColor: '#17BEBB' }}>
+          {this.renderTasks()}
+        </ScrollView>
+        
+        <View style={{ width: 200, height: 120, backgroundColor: '#17BEBB' }}>
+          <Input 
+            placeholder='Add a Task!' 
+            onChangeText={this.taskTextChange.bind(this)} 
+            value={this.state.taskToAdd} 
+          />
+          <Button onPress={this.addTask.bind(this)}>
+            Add
+          </Button>
+        </View>
         <AlertModal 
           visible={this.state.alertModalVisible} 
           modalText='Please add a task name!'
