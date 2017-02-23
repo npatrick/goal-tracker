@@ -15,8 +15,12 @@ class App extends Component {
 
 addTask() {
   const tasks = this.state.tasks.slice();
+  const task = {
+    title: this.state.taskToAdd,
+    completed: false
+  };
   console.log('call of addtask', tasks);
-  tasks.push(this.state.taskToAdd);
+  tasks.push(task);
   this.setState({
     tasks,
     taskToAdd: ''
@@ -28,7 +32,9 @@ taskTextChange(taskToAdd) {
 }
 
 renderTasks() {
-  return this.state.tasks.map((task, index) => (<Task key={index} text={task} />)); 
+  return this.state.tasks.map(
+      (task, index) => (<Task key={index} text={task.title} status={task.completed} />)
+    ); 
 }
 
     render() {
