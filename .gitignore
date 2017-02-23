@@ -37,9 +37,6 @@ npm-debug.log
 yarn-error.log
 fireconfig.js
 
-# eslint
-/.eslintrc
-
 # BUCK
 buck-out/
 \.buckd/
