@@ -14,16 +14,16 @@ class Button extends Component {
 const styles = {
     textStyle: {
         alignSelf: 'center',
-        color: '#007aff',
+        color: '#0E7C7B',
         fontSize: 16,
         fontWeight: '600',
         paddingTop: 10,
         paddingBottom: 10
     },
     buttonStyle: {
-        backgroundColor: '#fff',
+        backgroundColor: '#D4F4DD',
         borderRadius: 5,
-        borderColor: '#007aff',
+        borderColor: '#17BEBB',
         borderWidth: 1,
         marginLeft: 5,
         marginRight: 5
