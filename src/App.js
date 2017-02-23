@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text } from 'react-native';
 import Task from './components/Task';
-import { Input } from './components/common';
+import { Input, Button } from './components/common';
 import styles from './styles/styles';
 
 class App extends Component {
@@ -49,9 +49,9 @@ renderTasks() {
           onChangeText={this.taskTextChange.bind(this)} 
           value={this.state.taskToAdd} 
         />
-        <TouchableHighlight onPress={this.addTask.bind(this)}>
-          <Text> Add </Text>
-        </TouchableHighlight>
+        <Button onPress={this.addTask.bind(this)}>
+          Add
+        </Button>
 
       </View>
         );
