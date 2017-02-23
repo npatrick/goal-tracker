@@ -36,6 +36,10 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+
+# eslint
+/.eslintrc
+
 # BUCK
 buck-out/
 \.buckd/
