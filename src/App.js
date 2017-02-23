@@ -1,30 +1,38 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import Task from './components/Task';
-import { Input, Button } from './components/common';
+import { AlertModal, Input, Button } from './components/common';
 import styles from './styles/styles';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      taskToAdd: '',
-      tasks: []
+      taskToAdd: null,
+      tasks: [],
+      alertModalVisible: false
      };
   }
 
 addTask() {
-  const tasks = this.state.tasks.slice();
-  const task = {
-    title: this.state.taskToAdd,
-    completed: false
-  };
-  console.log('call of addtask', tasks);
-  tasks.push(task);
-  this.setState({
-    tasks,
-    taskToAdd: ''
-  });
+  if (this.state.taskToAdd) {
+    const tasks = this.state.tasks.slice();
+    const task = {
+      title: this.state.taskToAdd,
+      completed: false
+    };
+    tasks.push(task);
+    this.setState({
+      tasks,
+      taskToAdd: null
+    });
+  } else {
+    this.setState({ alertModalVisible: true });
+  }
+}
+
+closeModal() {
+    this.setState({ alertModalVisible: false });
 }
 
 taskTextChange(taskToAdd) {
@@ -52,6 +60,12 @@ renderTasks() {
         <Button onPress={this.addTask.bind(this)}>
           Add
         </Button>
+        <AlertModal 
+          visible={this.state.alertModalVisible} 
+          modalText='Please add a task name!'
+          closeModal={this.closeModal.bind(this)}
+          closeText='OK'
+        />
 
       </View>
         );
