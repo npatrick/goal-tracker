@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text } from 'react-native';
+import { Button } from './common';
 
 class Task extends Component {
     constructor(props) {
@@ -34,9 +35,9 @@ class Task extends Component {
         return (<View>
             <Text> {this.props.text} </Text>
             <Text> COMPLETED: {this.completeOrNah()} </Text>
-            <TouchableHighlight onPress={this.completeTask.bind(this)}>
-                <Text> Tap to {this.buttonTextConditional()} </Text>
-            </TouchableHighlight>
+            <Button onPress={this.completeTask.bind(this)}>
+                Tap to {this.buttonTextConditional()}
+            </Button>
         </View>);
     }
 }
