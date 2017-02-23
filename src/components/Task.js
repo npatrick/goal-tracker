@@ -13,6 +13,9 @@ class Task extends Component {
         console.log('RENDERING TASK', this.props.text);
         console.log('STATE', this.state);
     }
+    removeTask() {
+        this.props.removeTask(this.props.index);
+    }
     completeTask() {
         this.setState({
             status: !this.state.status
@@ -37,6 +40,9 @@ class Task extends Component {
             <Text> COMPLETED: {this.completeOrNah()} </Text>
             <Button onPress={this.completeTask.bind(this)}>
                 Tap to {this.buttonTextConditional()}
+            </Button>
+            <Button onPress={this.removeTask.bind(this)}>
+                X
             </Button>
         </View>);
     }

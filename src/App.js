@@ -15,6 +15,7 @@ class App extends Component {
   }
 
 addTask() {
+  console.log(this.props);
   if (this.state.taskToAdd) {
     const tasks = this.state.tasks.slice();
     const task = {
@@ -31,6 +32,14 @@ addTask() {
   }
 }
 
+removeTask(index) {
+  const tasks = this.state.tasks;
+  tasks.splice(index, 1);
+  this.setState({
+    tasks
+  });
+}
+
 closeModal() {
     this.setState({ alertModalVisible: false });
 }
@@ -41,7 +50,14 @@ taskTextChange(taskToAdd) {
 
 renderTasks() {
   return this.state.tasks.map(
-      (task, index) => (<Task key={index} text={task.title} status={task.completed} />)
+      (task, index) => 
+        (<Task 
+          removeTask={this.removeTask.bind(this)} 
+          key={index} 
+          text={task.title} 
+          status={task.completed} 
+          index={index}
+        />)
     ); 
 }
 
