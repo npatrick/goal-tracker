@@ -1,16 +1,23 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
+const Input = ({ 
+    label, 
+    value, 
+    onChangeText, 
+    placeholder, 
+    secureTextEntry, 
+    placeholderTextColor }) => {
     const { inputStyle, labelStyle } = styles;
 
         return (
             <View>
                 <Text style={labelStyle}>{label}</Text>
                 <TextInput
+                placeholderTextColor={placeholderTextColor}
                 secureTextEntry={secureTextEntry}
                 placeholder={placeholder}
-                underlineColorAndroid='#0E7C7B'
+                underlineColorAndroid='#FAFAFF'
                 autoCorrect={false}
                 style={inputStyle}
                 value={value}
@@ -22,7 +29,7 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => 
 
 const styles = {
     inputStyle: {
-        color: '#000',
+        color: '#FFFFFF',
         fontSize: 18,
         lineHeight: 23,
     },

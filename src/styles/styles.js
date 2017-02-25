@@ -3,12 +3,12 @@ const styles = {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#17BEBB',
+    backgroundColor: '#4CAF50'
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 15,
     textAlign: 'center',
-    margin: 10,
+    color: '#FFFFFF'
   },
   instructions: {
     textAlign: 'center',
@@ -16,7 +16,7 @@ const styles = {
     marginBottom: 5,
   },
   inputStyle: {
-        color: '#000',
+        color: '#FFFFFF',
         paddingRight: 5,
         paddingLeft: 5,
         fontSize: 18,
