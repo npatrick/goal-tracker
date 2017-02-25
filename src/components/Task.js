@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Button } from './common';
+import styles from '../styles/styles';
 
 class Task extends Component {
     constructor(props) {
@@ -35,9 +36,10 @@ class Task extends Component {
             return 'complete';
     }
     render() {
-        return (<View>
-            <Text> {this.props.text} </Text>
-            <Text> COMPLETED: {this.completeOrNah()} </Text>
+        return (
+        <View style={{ padding: 5 }}>
+            <Text style={styles.welcome}> {this.props.text} </Text>
+            <Text style={styles.welcome}> COMPLETED: {this.completeOrNah()} </Text>
             <Button onPress={this.completeTask.bind(this)}>
                 Tap to {this.buttonTextConditional()}
             </Button>
