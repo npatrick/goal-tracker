@@ -4,15 +4,33 @@ import Calendar from './components/Calendar';
 import TasksHome from './components/TasksHome';
 
 const RouterComponent = () => {
+  const { transparentBorder, navBarStyle, textStyle } = styles;
   return (
-    <Router sceneStyle={{ paddingTop: 55 }}>
-        <Scene key='main'>
-            <Scene key="tasks" component={TasksHome} title="Tasks" />
-            <Scene key="calendar" component={Calendar} title="Calendar" />
+    <Router
+    navigationBarStyle={transparentBorder} 
+    sceneStyle={{ borderWidth: 0, paddingTop: 65 }}
+    >
+        <Scene key='main' navigationBarStyle={navBarStyle} titleStyle={textStyle}>
+          <Scene navigationBarStyle={navBarStyle} key="tasks" component={TasksHome} title="Tasks" />
+          <Scene navigationBarStyle={navBarStyle} key="cal" component={Calendar} title="Calendar" />
         </Scene>
 
     </Router>
   );
+};
+
+const styles = {
+  transparentBorder: {  
+      borderBottomColor: 'transparent', 
+      borderBottomWidth: 65
+  },
+  navBarStyle: {
+    backgroundColor: '#4CAF50'
+  },
+  textStyle: { 
+    backgroundColor: '#4CAF50', 
+    color: '#FFF' 
+  }
 };
 
 export default RouterComponent;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Task from './Task';
 import { AlertModal, Input, Button } from './common';
@@ -49,7 +49,7 @@ taskTextChange(taskToAdd) {
   this.setState({ taskToAdd });
 }
 navToCalendar() {
-  Actions.calendar();
+  Actions.cal();
 }
 
 renderTasks() {
@@ -68,16 +68,17 @@ renderTasks() {
     render() {
         return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to GoalTracker!!!
-        </Text>
-        <ScrollView style={{ width: 200, height: 300, backgroundColor: '#17BEBB' }}>
+        <ScrollView style={{ width: 300, height: 300, backgroundColor: '#4CAF50' }}>
           {this.renderTasks()}
         </ScrollView>
-        <Button onPress={this.navToCalendar.bind(this)}>Calendar</Button>
+
+        <View style={{ paddingTop: 5 }}>
+            <Button onPress={this.navToCalendar.bind(this)}>Calendar</Button>
+        </View>
         
-        <View style={{ width: 200, height: 120, backgroundColor: '#17BEBB' }}>
+        <View style={{ width: 300, height: 120, marginBottom: 10, backgroundColor: '#4CAF50' }}>
           <Input 
+            placeholderTextColor={'#FFF'}
             placeholder='Add a Task!' 
             onChangeText={this.taskTextChange.bind(this)} 
             value={this.state.taskToAdd} 
